@@ -1,0 +1,24 @@
+function sSocket(const af, Struct, protocol: Integer): TSocketHandle;
+function sCloseSocket(const s: TSocketHandle): Integer;
+function sConnect(const s: TSocketHandle; var name: TSockAddr; const namelen: Integer): Integer;
+function sIOCtl(const s: TSocketHandle; const cmd: DWord; var arg: Integer): Integer;
+function sBind(const s: TSocketHandle; var addr: TSockAddr; const namelen: Integer): Integer;
+function sAccept(const s: TSocketHandle; const addr: PSockAddr; const addrlen: PInteger): TSocketHandle;
+function sGetSockOpt(const s: TSocketHandle; const level, optname: Integer; const optval: Pointer; var optlen: Integer): Integer;
+function sSetSockOpt(const s: TSocketHandle; const level, optname: Integer; const optval: Pointer; const optlen: Integer): Integer;
+function sListen(const s: TSocketHandle; const backlog: Integer): Integer;
+function sRecv(const s: TSocketHandle; var Buf; const len, flags: Integer): Integer;
+function sSelect(const nfds: Integer; const readfds, writefds, exceptfds: PFDSet; const timeout: PTimeVal): Longint;
+function sSend(const s: TSocketHandle; const Buf; const len, flags: Integer): Integer;
+function sShutdown(const s: TSocketHandle; const how: Integer): Integer;
+function sGetHostByName(const Name: string): TInAddr;
+function sHtons(const hostshort: Word): Word;
+function sInet_addr(const cp: MarshaledAString): DWord;
+function sGetLastError: Integer;
+procedure sSetLastError(const Error: Integer);
+function sSetNonBlockMode(const Socket: TSocketHandle): Integer;
+procedure sFD_CLR(Socket: TSocketHandle; var FDSet: TFDSet);
+function sFD_ISSET(Socket: TSocketHandle; var FDSet: TFDSet): Boolean;
+procedure sFD_SET(Socket: TSocketHandle; var FDSet: TFDSet);
+procedure sFD_ZERO(var FDSet: TFDSet);
+
